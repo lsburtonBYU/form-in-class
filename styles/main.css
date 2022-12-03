@@ -255,6 +255,7 @@ body.about h1 {
   display: grid;
   grid-template-columns: auto 1fr;
   column-gap: 1rem;
+  row-gap: 0.5rem;
 }
 
 .contact fieldset {
@@ -275,6 +276,72 @@ body.about h1 {
 .contact main {
   display: flex;
   flex-direction: column;
+}
+
+/* styles for form */
+.contact input[type="checkbox"],
+.contact input[type="radio"] {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+
+  appearance: none;
+  border: 1px solid #000;
+  width: 24px;
+  height: 24px;
+}
+
+.contact input[type="radio"] {
+  border-radius: 50%;
+}
+
+.contact input[type="radio"]::after {
+  content: "";
+  display: block;
+  width: 16px;
+  height: 16px;
+  background-color: black;
+  border-radius: 50%;
+  transform: scale(0);
+  transition: transform 200ms;
+}
+
+.contact input[type="radio"]:checked::after {
+  transform: scale(1);
+}
+
+.contact input[type="checkbox"]::after {
+  content: "";
+  display: block;
+  width: 6px;
+  height: 10px;
+  border-right: 3px solid rebeccapurple;
+  border-bottom: 3px solid rebeccapurple;
+  margin-bottom: 4px;
+  transform: rotate(38deg);
+  transition: transform 200ms;
+  opacity: 0;
+  transition: opacity 200ms;
+}
+
+.contact input[type="checkbox"]:checked::after {
+  opacity: 1;
+}
+
+.contact button {
+  appearance: none;
+}
+
+.contact form input:active,
+.contact form input:focus {
+  box-shadow: 0px 0px 3px lime;
+}
+
+.contact form > input,
+.contact form textarea {
+  padding: 6px;
+  font-size: 1rem;
+  color: rebeccapurple;
 }
 
 @media (min-width: 401px) {
